@@ -10,9 +10,16 @@
   
 </head>
 <body>
-<main>
+  <nav>
   <a href="/">Homepage</a>
     <a href="/users">Users</a>
+  </nav>
+
+    <section class="jumbotron">
+      <img class="jumbotron" src="images/adventure-daylight-environment-596126.jpg">
+    </section>
+
+
     <% flash.keys.each do |type| %>
       <div class="flash <%= type %>">
         <%= flash[type] %>
@@ -41,6 +48,7 @@
 
   <%= yield %>
   
+    
     <div class="container">
     <div class="row">
       <div class="col">
@@ -69,7 +77,7 @@
       </div>
     </div>
   </div>
-</main>
+
 
   <script src="app.js" type="text/javascript"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>

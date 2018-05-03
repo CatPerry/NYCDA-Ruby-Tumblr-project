@@ -93,8 +93,10 @@ nav a {
 #toggle-menu:checked ~ .menu-off {
 	display: block;
 }
-.opener {
+.jumbotron {
   width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 footer {
   position: fixed;

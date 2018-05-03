@@ -10,7 +10,7 @@ set :sessions, true
 #the session createa a cookie that is handled by the browser, ti creates a ra.csession
 
 configure :development do
-  set :database, "sqlite3:[name of database file]"
+  set :database, "sqlite3:app.db"
 end
 
 # this will ensure this will only be used on production
@@ -106,7 +106,7 @@ end
 
 #we can treate th path after prfile ad a variable doing the following
 get "/profile/:username" do
- @users = User.find(params[:username]
+ @users = User.find(params[:username])
 end
 
 get "/profile" do
