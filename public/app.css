@@ -93,10 +93,38 @@ nav a {
 #toggle-menu:checked ~ .menu-off {
 	display: block;
 }
-.jumbotron {
+section {
+  margin: 0px;
+  padding: 0px;
+}
+img.jumbotron {
   width: 100%;
   margin: 0px;
   padding: 0px;
+}
+div.col {
+  padding: 0px;
+}
+.centerimg {
+  width: 100%;
+}
+.leftliimg {
+  width: 60px;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+li {
+  list-style-type: none;
+}
+.previewtext {
+  word-wrap: none;
+  float: right;
+}
+.rightliimg {
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 footer {
   position: fixed;
