@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tumbler</title>
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  
+</head>
+<body>
+<main>
+  <a href="/">Homepage</a>
+    <a href="/users">Users</a>
+    <% flash.keys.each do |type| %>
+      <div class="flash <%= type %>">
+        <%= flash[type] %>
+        <a class="close-button" href="#">x</a>
+      </div>
+    <% end %>
+
+    <ul>
+    <!-- THIS IS THE SEESION USER ID VERIFICATION AND CAN BE USED ANYWHERE-->
+    <% if session[:user_id] %>
+
+      <!-- only show this code when signed in -->
+
+      <!-- clicking on this link will hit the get "/sign-out" route -->
+      <a href="/sign-out" />Profiel</a>
+      <a href="/sign-out" />Sign out</a>
+
+    <% else %>
+
+      <!-- only show this code when signed out -->
+      <a href="/sign-in" />Sign In</a>
+      <a href="/sign-up" />Sign Up</a>
+    
+    <% end %>
+    </ul>
+
+  <%= yield %>
+  
+    <div class="container">
+    <div class="row">
+      <div class="col">
+        Left sidebar goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut massa elit. Proin sit amet sapien at arcu luctus commodo.
+
+
+      </div>
+      <div class="col-6">
+        <img class="opener" src="images/art-creative-flying-17679.jpg">
+      </div>
+      <div class="col">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut massa elit. Proin sit amet sapien at arcu luctus commodo.
+
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        1 of 3
+      </div>
+      <div class="col-5">
+        2 of 3 (wider)
+      </div>
+      <div class="col">
+        3 of 3
+      </div>
+    </div>
+  </div>
+</main>
+
+  <script src="app.js" type="text/javascript"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+</body>
+</html>

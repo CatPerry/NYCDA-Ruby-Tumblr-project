@@ -1,0 +1,7 @@
+
+<ul>
+<%= @users.eah do |user| %>|
+# loops through all users and then givs you user page 
+<li><a href="/profile/<%=user.id %>"> <%= user.username %>"</a></li>
+<%= end %>
+</ul>

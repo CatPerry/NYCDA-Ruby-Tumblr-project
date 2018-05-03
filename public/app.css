@@ -1,0 +1,107 @@
+header {
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: red;
+   color: white;
+   text-align: center;
+}
+.flash {
+  background-color: pink;
+}
+.hide, {
+  display: none;
+  opacity: 0;
+}
+nav {
+    height: 65px;
+    background: #FFAE00;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+nav a {
+    float: left; 
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5em;
+    display: block;
+    margin-top: 0px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none; 
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+/* .sticky + .content {
+    padding-top: 60px;
+    z-index: 5;
+} */
+.menu-on {
+	z-index: 1001;
+	position: fixed;
+	background-color: white;
+	right: 0;
+	top: 0;
+	padding: 10px;
+}
+.menu-on img {
+	height: 50px;
+	position: fixed;
+	background-color: #53B8C6;
+	right: 0;
+	top: 0;
+	padding: 0px;
+	box-shadow: 2px 2px 5px 2px #888888;
+	border-radius: 3px;
+}
+.menu-off {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: 50px;
+	z-index: 1003;
+}
+.menu-off img {
+	height: 50px;
+	position: fixed;
+	right: 0;
+	top: 0;
+	padding: 0px;
+	z-index: 1003;
+	opacity: 1;
+}
+#toggle-menu {
+	display: none;
+}
+#toggle-menu ~ .menu-off {
+	display: none;
+}
+#toggle-menu:checked ~ nav {
+	display: block;	
+}
+#toggle-menu:checked ~ .menu-on img {
+	opacity: 0;
+}
+#toggle-menu:checked ~ .menu-off {
+	display: block;
+}
+.opener {
+  width: 100%;
+}
+footer {
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
