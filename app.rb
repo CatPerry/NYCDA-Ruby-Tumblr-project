@@ -25,7 +25,7 @@ end
 
 get "/" do
   if session[:user_id]
-    erb :signed_in_homepage
+    erb :index
   else
     erb :signed_out_homepage
   end
@@ -33,7 +33,7 @@ end
 
 # displays sign in form
 get "/sign-in" do
-  erb :sign_in
+  erb :sign_in, :layout => :sign_in_homepage
 end
 
 # responds to sign in form
@@ -50,7 +50,7 @@ post "/sign-in" do
     flash[:info] = "You have been signed in"
 
     # redirects to the home page
-    redirect "/"
+    redirect "/posts"
   else
     # lets the user know that something is wrong
     flash[:warning] = "Your username or password is incorrect"
@@ -101,21 +101,46 @@ end
 
 #Create a post page
 # if sesssion[user_id] = nill
+get "/profile" do
+  # if session[:user_id]
+  erb :profile, :layout => :signed_in_homepage
+  # end 
+end
+
+ post "/profile" do
+  erb :profile, :layout => :signed_in_homepage
+  puts "Hello world"
+ end
 
 #use an if statement to see if a user is signed in
 
 #we can treate th path after prfile ad a variable doing the following
-get "/profile/:username" do
- @users = User.find(params[:username])
+get "/profile/:id" do
+ @users = User.find(params[:id])
 end
+
+# get "/profile/:username" do
+#  @users = User.find(params[:username])
+# end
 
 get "/profile" do
    @users = User.find(session[:user_id])
-  erb :profile
+  erb :posts
 end
 
-get "/users" do
-  # @users_string = User.all.map { |user| "#{user.username} | #{user.password}" }.join(" ")
-  @users_string = User.all
-  erb :users
+
+get "/posts" do
+  @posts = Post.all
+  @users = User.find(session[:user_id])
+  erb :signed_in_homepage
+end
+
+post "/posts" do
+@post = Post.create(
+  title: params[:title],
+  content: params[:content],
+  # image: params[:image],
+  user_id: params[:user_id]
+  )
+redirect "/" 
 end

@@ -1,11 +1,24 @@
-header {
+body {
+  font-family: font-family: 'Open Sans Condensed', sans-serif;
+}
+.logofont {
+  font-family: 'Alfa Slab One', cursive;
+  text-align: center;
+  font-size: 2.2em;
+  margin-top: 10px;
+}
+/* header {
   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: red;
-   color: white;
-   text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+} */
+.subhedfont {
+  font-family: 'Alfa Slab One', cursive;
+  text-align: left;
 }
 .flash {
   background-color: pink;
@@ -14,30 +27,31 @@ header {
   display: none;
   opacity: 0;
 }
-nav {
-    height: 65px;
-    background: #FFAE00;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    overflow: hidden;
+#nav {
+  height: 65px;
+  background: #FFAE00;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
 }
-nav a {
-    float: left; 
-    color: black;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 1.5em;
-    display: block;
-    margin-top: 0px;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none; 
+#nav a {
+  float: left; 
+  color: black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.5em;
+  display: block;
+  margin-top: 0px;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none; 
 }
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
 }
 /* .sticky + .content {
     padding-top: 60px;
@@ -112,25 +126,76 @@ div.col {
   width: 60px;
   float: left;
   margin-top: 0px;
+  margin-right: 10px;
   margin-bottom: 0px;
 }
 li {
   list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .previewtext {
   word-wrap: none;
   float: right;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 .rightliimg {
   width: 100%;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-footer {
+.media {
+  margin: 40px;
+}
+.mr-3 {
+  border-left: 6px solid red;
+  width: 100px;
+}
+div.sign-in-bar {
+  text-align: center;
+  width: 250px;
+  background-color: #FFAE00;
+}
+#buttons {
+  background-color: #FFAE00;
+  border-radius: 4px;
+  color: white;
+}
+.forms {
+  text-align: center;
+}
+#blogposttextarea, .form-control {
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  justify: center;
+}
+#videoloop {
+  /* position: fixed;
+  right: 0;
+  bottom: 0; */
+  min-width: 100%;
+  z-index: 2;
+}
+.content {
   position: fixed;
-   left: 0;
-   bottom: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 30px;
+}
+#vidbutton {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+}
+footer {
    width: 100%;
+   height: 120px;
    background-color: black;
    color: white;
    text-align: center;

@@ -1,0 +1,7 @@
+<%= @posts.each do |post| %>
+  <h2> <%= post.title %> </h2><br>
+  <%="by #{post.user.username}"%>
+  <p class="content"> <%= post.content %> </p>
+  <p><img src="<%= post.image %>" ></p>
+  <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
+<%= end %>

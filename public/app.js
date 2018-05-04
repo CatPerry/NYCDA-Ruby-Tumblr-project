@@ -8,7 +8,7 @@ closeButton.addEventListener("click", event => {
 });
 
 window.addEventListener("scroll", function () {
-        let nav = document.getElementById("nav")
+        let nav = document.getElementById("#nav")
         let sticky = nav.offsetTop;
 
         function stickyNav() {
@@ -19,3 +19,17 @@ window.addEventListener("scroll", function () {
             }
         } stickyNav()
     });
+
+let video = document.getElemnetById("videoloop");
+
+let button = document.getElementById("vidbutton");
+
+function playPause() {
+  if (video.paused) {
+    video.play();
+    button.innerHTML = "Pause";
+  } else {
+    video.pause();
+    button.innerHTML = "Play";
+  }
+}
