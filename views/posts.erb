@@ -1,7 +1,13 @@
-<%= @posts.each do |post| %>
+<% @posts.each do |post| %>
   <h2> <%= post.title %> </h2><br>
-  <%="by #{post.user.username}"%>
+  <%="by #{post.author}"%>
   <p class="content"> <%= post.content %> </p>
-  <p><img src="<%= post.image %>" ></p>
+  <p><img src="<%= post.images %>" class="postsimgvid"></p>
   <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
-<%= end %>
+  
+  <form ation="/posts/<%= post.id %>/delete" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+
+<% end %>

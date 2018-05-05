@@ -65,14 +65,19 @@ end
 #   with fields for relevant user information like:
 #   username, password
 get "/sign-up" do
-  erb :sign_up
+  erb :sign_up, :layout => :sign_up_homepage
 end
 
 #here we start to user sessions
 post "/sign-up" do
   @user = User.create(
     username: params[:username],
-    password: params[:password]
+    password: params[:password],
+    userimage: params[:userimage],
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    email: params[:email],
+    birthday: params[:birthday]
   )
   
   # this line does the signing in
@@ -82,7 +87,7 @@ post "/sign-up" do
   flash[:info] = "Thank you for signing up"
 
   # assuming this page exists
-  redirect "/"
+  redirect "/posts"
 end
 
 # when hitting this get path via a link
@@ -95,52 +100,66 @@ get "/sign-out" do
   # lets the user know they have signed out
   flash[:info] = "You have been signed out"
   
-  redirect "/"
+  redirect "/sign-in"
 end
 
 
-#Create a post page
-# if sesssion[user_id] = nill
 get "/profile" do
-  # if session[:user_id]
-  erb :profile, :layout => :signed_in_homepage
-  # end 
+  @user = User.find(session[:user_id])
+  @posts = @user.posts
+  erb :profile
 end
 
- post "/profile" do
-  erb :profile, :layout => :signed_in_homepage
-  puts "Hello world"
- end
-
-#use an if statement to see if a user is signed in
-
-#we can treate th path after prfile ad a variable doing the following
 get "/profile/:id" do
- @users = User.find(params[:id])
+  @user = User.find(session[:user_id])
+  @posts = @user.posts
 end
 
-# get "/profile/:username" do
-#  @users = User.find(params[:username])
-# end
-
-get "/profile" do
-   @users = User.find(session[:user_id])
-  erb :posts
-end
-
-
+#create posts
 get "/posts" do
   @posts = Post.all
   @users = User.find(session[:user_id])
-  erb :signed_in_homepage
+  erb :posts, :layout => :signed_in_homepage
 end
 
 post "/posts" do
 @post = Post.create(
   title: params[:title],
+  author: params[:author],
   content: params[:content],
-  # image: params[:image],
+  images: params[:images],
   user_id: params[:user_id]
   )
 redirect "/" 
+end
+
+#delete post
+delete "/posts/:id/delete" do
+  @post = Post.find_by_id(params[:id])  
+  @post.delete
+  redirect "/profile"
+end
+
+#delete user
+get "/delete" do 
+  erb :delete
+end
+
+delete "/delete" do
+  @user = User.find(session[:user_id])
+  @user.destroy
+  redirect "/login"
+end
+
+# edit post inspired by http://mherman.org/blog/2013/06/08/designing-with-class-sinatra-plus-postgresql-plus-heroku/#edit-posts
+get "/posts/:id/edit" do
+  @post = Post.find(params[:id])
+  @title = "Edit Form"
+  erb :"posts/edit"
+end
+
+post "/posts/:id" do
+  @posts = Post.find(params[:id])
+  @post.update(params[:post])
+  redirect "/posts/#{@post.id}"
 end

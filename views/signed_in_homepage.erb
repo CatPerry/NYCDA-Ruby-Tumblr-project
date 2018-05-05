@@ -12,97 +12,105 @@
     </head>
     <body>
       <nav id="nav">
-      <a href="/">Home</a>
-        <a href="/sign-in">Sign In</a>
-        <p class="logofont">
+        <a href="/">Home</a>
+        <a href="/sign-out">Sign Out</a>
+        <a href="/posts"/>Profile</a>
+          <p class="logofont">
           Epic Travelers
         </p>
+          
+
+          <ul>
+          <!-- THIS IS THE SEESION USER ID VERIFICATION AND CAN BE USED ANYWHERE-->
+          <% if session[:user_id] %>
+            <!-- only show this code when signed in -->
+            <!-- clicking on this link will hit the get "/sign-out" route -->
+            <a href="/posts"/><button>Profile</button></a>
+            <a href="/sign-out" /><button>Sign out</button></a>
+          <% else %>
+            <!-- only show this code when signed out -->
+            <ul class="sign-in-bar">
+            <li><a href="/sign-in" /><button id="buttons">Sign In</button></a> <a href="/sign-up" /><button id="buttons">Sign Up</button></a></li>
+            </ul>  
+          <% end %>
+          </ul> 
       </nav>
 
 
 
       <% flash.keys.each do |type| %>
-        <div class="flash <%= type %>">
+        <div class="flash <%= type %>" data-timeout="5000">
           <%= flash[type] %>
           <a class="close-button" href="#">x</a>
         </div>
       <% end %>
-  
-
-      <ul>
-      <!-- THIS IS THE SEESION USER ID VERIFICATION AND CAN BE USED ANYWHERE-->
-      <% if session[:user_id] %>
-
-        <!-- only show this code when signed in -->
-
-        <!-- clicking on this link will hit the get "/sign-out" route -->
-        <a href="/posts"/><button>Profile</button></a>
-        <a href="/sign-out" /><button>Sign out</button></a>
-
-      <% else %>
-
-        <!-- only show this code when signed out -->
-        <ul class="sign-in-bar">
-        <li><a href="/sign-in" /><button id="buttons">Sign In</button></a> <a href="/sign-up" /><button id="buttons">Sign Up</button></a></li>
-        </ul>
-      
-      <% end %>
-      </ul>  
-      
+        
       <div class="container">
         <div class="row">
-          <div class="col">
-            <p class="subhedfont">GO: ADVENTURE<br>Pictures of the Day</p>
-            <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
-            <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
-            <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
-            <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
-          </div>
-          
-          <div class="col-6">
+          <div class="col-xs-7 col-sm-6 col-lg-8">
             <form action="/posts" method="POST">
               <div class="form-group">
-                <label for="blog_post">Write a Post</label><br>
-                <textarea name="title" class="form-control" placeholder="Enter title here"></textarea>
-                <textarea name="content" class="form-control" placeholder="Type here" id="blogposttextarea" rows="30" columns="20"></textarea>
-                <span class="border border-warning"><input type="submit" value="Post" id="blogbutton"></span>
+                <label for="blog_post" class="subhedfont">Write a Post</label><br>
+                <input type="text" name="title" placeholder="Enter title">
+                <input type="text" name="author" placeholder="Enter author">
+                <textarea name="content" class="form-control" placeholder="Type here" id="blogposttextarea" rows="20" cols="50"></textarea>
+                <input type="text" name="images" class="postsimgvid" placeholder="Paste video link/url">
+                <input type="submit" value="Post" id="blogbutton">
               </div>
             </form>
           </div>
 
-          
-          <div class="col">
+          <div class="col-xs-5 col-sm-6 col-lg-4">
+            <div class="userInfo">
+            <p class="subhedfont center">User Info</p>
+            <img src="<%= @users.userimage %>" class="profileimg"><br>
+            <%= @users.username %><br>
+            <%= @users.first_name %><br>
+            <%= @users.last_name %><br>
+            <%= @users.email %><br>
+            <%= @users.birthday %><br>
+            <a href="/delete">DELETE YOUR ACCOUNT</a>
+            <div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-8 col-lg-10">
             <ul>
-                <li class="subhedfont">#Trending Topics</li>
-                 <% @posts.each do |post| %>
+              <li class="subhedfont centered">Your Latests Posts</li>
+                        
+                <% @posts.each do |post| %>
+                <% @posts.sort_by(&:created_at).reverse%>
                 <h2> <%= post.title %> </h2><br>
-                <%#="by #{post.user.username}"%>
+                <%="by #{post.author}"%>
                 <p class="content"> <%= post.content %> </p>
-                <%#<p><img src="<%= post.image %>
+                <p><img src="<%= post.images %>" class="postsimgvid"></p>
                 <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
-              <% end %>
-                
+                <% end %> 
             </ul>
           </div>
-        </div>
-        <p class="subhedfont">
-          BLOGGERS WE LOVE
-        </p>
-        <div class="media">
-          <img class="mr-3" src="/images/architecture-asphalt-blur-730256.jpg" alt="Visiting Iceland">
-          <div class="media-body">
-            <h5 class="mt-0">Media heading</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div><div class="media">
-          <img class="mr-3" src="/images/architecture-asphalt-blur-730256.jpg" alt="Visiting Iceland">
-          <div class="media-body">
-            <h5 class="mt-0">Media heading</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
-        
+        </div>   
       </div>
+
+          <p class="subhedfont">
+            MORE BLOGGERS WE LOVE
+            </p>
+            <div class="media">
+              <img class="mr-3" src="/images/architecture-asphalt-blur-730256.jpg" alt="Visiting Iceland">
+              <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+            </div><div class="media">
+              <img class="mr-3" src="/images/architecture-asphalt-blur-730256.jpg" alt="Visiting Iceland">
+              <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
 
     <footer>
       Footer Lorem ipsum text

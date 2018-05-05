@@ -6,6 +6,7 @@ body {
   text-align: center;
   font-size: 2.2em;
   margin-top: 10px;
+  text-shadow: white 2px 2px 2px;
 }
 /* header {
   position: fixed;
@@ -18,14 +19,25 @@ body {
 } */
 .subhedfont {
   font-family: 'Alfa Slab One', cursive;
+  font-size: 1.3em;
   text-align: left;
+}
+.subhedfont .center {
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 1.3em;
+  text-align: center;
 }
 .flash {
   background-color: pink;
+  animation: cssAnimation 0s ease-in 3s forwards;
 }
-.hide, {
-  display: none;
-  opacity: 0;
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow: hidden;
+        display: none;
+    }
 }
 #nav {
   height: 65px;
@@ -129,6 +141,9 @@ div.col {
   margin-right: 10px;
   margin-bottom: 0px;
 }
+.profileimg {
+  width: 100%;
+}
 li {
   list-style-type: none;
   margin-top: 10px;
@@ -151,9 +166,22 @@ li {
   border-left: 6px solid red;
   width: 100px;
 }
+.close-button {
+  display: none;
+}
+.hide {
+  display: none;
+}
 div.sign-in-bar {
   text-align: center;
   width: 250px;
+  background-color: #FFAE00;
+}
+div.sign-up-bar {
+  position: fixed;
+  bottom: 0px;
+  text-align: left;
+  width: 600px;
   background-color: #FFAE00;
 }
 #buttons {
@@ -161,14 +189,24 @@ div.sign-in-bar {
   border-radius: 4px;
   color: white;
 }
+.postsimgvid {
+  width: 100%;
+}
 .forms {
   text-align: center;
 }
-#blogposttextarea, .form-control {
-  width: 300px;
-  height: 350px;
+.form-control .form-group #blogposttextarea {
+  width: 100%;
+  height: 375px;
   text-align: center;
   justify: center;
+}
+.form-group {
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: black 3px 3px 3px;
+  padding: 30px;
+  color: #f1f1f1;
+  border-left: 6px solid red;
 }
 #videoloop {
   /* position: fixed;
@@ -177,12 +215,20 @@ div.sign-in-bar {
   min-width: 100%;
   z-index: 2;
 }
-.content {
+/* .content {
   position: fixed;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
+  padding: 30px;
+} */
+div.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 50%;
   padding: 30px;
 }
 #vidbutton {
@@ -196,6 +242,7 @@ div.sign-in-bar {
 footer {
    width: 100%;
    height: 120px;
+   margin: 0px;
    background-color: black;
    color: white;
    text-align: center;

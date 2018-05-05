@@ -33,3 +33,10 @@ function playPause() {
     button.innerHTML = "Play";
   }
 }
+
+// let flash = document.getElementsByClassName(".flash")
+// function disappearFlash() {
+//   setTimeout(function() {
+//     flash.remove();
+//     }, 5000);
+//  })

@@ -12,20 +12,15 @@
   </head>
   <body>
     <nav id="nav">
-    <a href="/">Home</a>
+      <a href="/">Home</a>
       <a href="/sign-in">Sign In</a>
+      <a href="/sign-up">Sign Up</a>
       <p class="logofont">
         Epic Travelers
       </p>
     </nav>
-
-      <section class="jumbotron">
-        <img class="jumbotron" src="images/adventure-daylight-environment-596126.jpg">
-      </section>
-
-
-      <% flash.keys.each do |type| %>
-        <div class="flash <%= type %>">
+          <% flash.keys.each do |type| %>
+        <div class="flash <%= type %>" data-timeout="5000">
           <%= flash[type] %>
           <a class="close-button" href="#">x</a>
         </div>
@@ -51,7 +46,13 @@
         </ul>
       
       <% end %>
-      </ul>  
+      </ul>
+ 
+
+
+      <section class="jumbotron">
+        <img class="jumbotron" src="images/adventure-daylight-environment-596126.jpg">
+      </section>
       
       <div class="container">
       <div class="row">
