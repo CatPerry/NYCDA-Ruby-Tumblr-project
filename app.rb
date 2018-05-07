@@ -12,7 +12,7 @@ from = Email.new(email: '000.perry@gmail.com')
 to = Email.new(email: '000.perry@gmail.com')
 
 
-set :database, "sqlite3:app.db"
+# set :database, "sqlite3:app.db"
 # enable :sessions
 set :sessions, true
 #the session createa a cookie that is handled by the browser
