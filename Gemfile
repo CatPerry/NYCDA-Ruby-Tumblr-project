@@ -6,6 +6,7 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "rake"
 gem 'bootstrap', '~> 4.1.1'
+gem 'sendgrid-ruby'
 
 group :development do
   gem "sqlite3"
