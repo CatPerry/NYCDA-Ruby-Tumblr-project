@@ -22,7 +22,7 @@ window.addEventListener("scroll", function () {
   function stickyNav() {
     let nav = document.querySelector("nav")
     let sticky = nav.offsetTop;
-      if (window.scrollY <= 5) {
+      if (window.scrollY <= nav) {
         nav.classList.add("sticky")
       } else {
         nav.classList.remove("sticky")

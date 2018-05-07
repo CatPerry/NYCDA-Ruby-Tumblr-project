@@ -1,6 +1,4 @@
 
-
-
 require "sinatra"
 require "sinatra/activerecord"
 require "sinatra/flash"
@@ -31,7 +29,9 @@ configure :production do
 end
 
 get "/" do
-  @posts = Post.all.order("created_at DESC")
+  # @posts = Post.all.order("created_at DESC")
+  @posts = Post.order("RANDOM()").limit(3)
+
   @users = User.all
   if session[:user_id]
     erb :index
@@ -139,12 +139,15 @@ get "/posts" do
 end
 
 post "/posts" do
+  #########new line below
+@user = User.find(session[:user_id])
 @post = Post.create(
   title: params[:title],
   author: params[:author],
   content: params[:content],
   images: params[:images],
-  user_id: params[:user_id]
+  #########new line below
+  user_id: @user_id
   )
 redirect "/posts" 
 end
