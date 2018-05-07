@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="public/images/fav">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Alfa+Slab+One|Limelight|Open+Sans+Condensed:300|Poiret+One|Source+Sans+Pro" rel="stylesheet">
     <title>Epic Travelers</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -12,19 +13,32 @@
   </head>
   <body>
     <nav id="nav">
-      <a href="/">Home</a>
-      <a href="/sign-in">Sign In</a>
-      <a href="/sign-up">Sign Up</a>
-      <p class="logofont">
-        Epic Travelers
-      </p>
-    </nav>
+        <a href="/">Home</a>
+        <% if session[:user_id] %>
+          <a href="/posts"/>Posts</a>
+          <a href="/sign-out">Sign Out</a>
+        <% else %>
+          <a href="/sign-in" />Sign In</a> <a href="/sign-up" />Sign Up</a>
+        <% end %>
+
+        <p class="logofont">
+          Epic Travelers
+        </p>
+      </nav>
+
+      <section class="jumbotron">
+        <img class="mainimg" src="images/adventure-daylight-environment-596126.jpg">
+        <img class="mainimg" src="images/action-adventure-beach-390051.jpg">
+        <img class="mainimg" src="images/adventure-backpack-casual-887828.jpg">
+        <img class="mainimg" src="images/adventure-flares-formation-70361.jpg">
+      </section>
+
           <% flash.keys.each do |type| %>
-        <div class="flash <%= type %>" data-timeout="5000">
-          <%= flash[type] %>
-          <a class="close-button" href="#">x</a>
-        </div>
-      <% end %>
+            <div class="flash <%= type %>" data-timeout="5000">
+              <%= flash[type] %>
+              <a class="close-button" href="#">x</a>
+            </div>
+          <% end %>
 
       <%= yield %>
 
@@ -35,7 +49,7 @@
         <!-- only show this code when signed in -->
 
         <!-- clicking on this link will hit the get "/sign-out" route -->
-        <a href="/profile" /><button>Profile</button></a>
+        <a href="/posts" /><button>Posts</button></a>
         <a href="/sign-out" />Sign out</a>
 
       <% else %>
@@ -47,56 +61,28 @@
       
       <% end %>
       </ul>
- 
 
-
-      <section class="jumbotron">
-        <img class="jumbotron" src="images/adventure-daylight-environment-596126.jpg">
-      </section>
-      
+     
       <div class="container">
       <div class="row">
         <div class="col">
           <p class="subhedfont">GO: ADVENTURE<br>Pictures of the Day</p>
-          <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
-          <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
-          <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
+          <img class="rightliimg" src="images/adventure-alps-background-207195.jpg">
+          <img class="rightliimg" src="images/action-adventure-bicycle-71104.jpg">
+          <img class="rightliimg" src="images/action-adventure-climbing-303040.jpg">
           <img class="rightliimg" src="images/action-adventure-aerial-312105.jpg">
         </div>
         
-        <div class="col-6">
-          <img class="centerimg" src="images/arctic-aurora-aurora-borealis-258112.jpg">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <img class="centerimg" src="images/adventure-aerial-beautiful-351448.jpg">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        
-        <div class="col">
-          <ul>
-          <li class="subhedfont">#Trending Topics</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          How this international one-night stand turned...</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Best waterfalls around the world for cliff diving</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          On the road: Making friends fast while traveling...</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          How to travel the world and never work again</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Left sidebar goes here. Lorem ipsum dolor sit.</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Left sidebar goes here. Lorem ipsum dolor sit.</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Left sidebar goes here. Lorem ipsum dolor sit.</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Left sidebar goes here. Lorem ipsum dolor sit.</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Left sidebar goes here. Lorem ipsum dolor sit.</li>
-          <li class="previewtext"><img class="leftliimg" src="images/art-bird-creative-34967.jpg">
-          Left sidebar goes here. Lorem ipsum dolor sit.</li>
-          </ul>
+        <div class="col-9">
+          <p class="subhedfont">Popular Posts</p>
+            <% @posts.each do |post|%>
+            <img class="centerimg imgPost" src="<%= post.images %>" ><br>
+            <h3> <%= post.title %></h3><%="by #{post.author}"%></br>
+           <% end %> 
+          </div>
         </div>
       </div>
+
       <p class="subhedfont">
         BLOGGERS WE LOVE
       </p>

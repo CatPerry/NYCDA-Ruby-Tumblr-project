@@ -1,13 +1,23 @@
+
+
+
 require "sinatra"
 require "sinatra/activerecord"
 require "sinatra/flash"
 require "./models"
 require "bootstrap"
+require 'sendgrid-ruby'
+
+include SendGrid
+
+from = Email.new(email: '000.perry@gmail.com')
+to = Email.new(email: '000.perry@gmail.com')
+
 
 set :database, "sqlite3:app.db"
 # enable :sessions
 set :sessions, true
-#the session createa a cookie that is handled by the browser, ti creates a ra.csession
+#the session createa a cookie that is handled by the browser
 
 configure :development do
   set :database, "sqlite3:app.db"
@@ -20,16 +30,17 @@ configure :production do
   set :database, ENV["DATABASE_URL"]
 end
 
-
-# Note you CAN define Class here, but for this project, we are defining it in project
-
 get "/" do
+  @posts = Post.all.order("created_at DESC")
+  @users = User.all
   if session[:user_id]
     erb :index
   else
     erb :signed_out_homepage
-  end
+  end 
+  erb :index
 end
+
 
 # displays sign in form
 get "/sign-in" do
@@ -84,9 +95,25 @@ post "/sign-up" do
   session[:user_id] = @user.id
 
   # lets the user know they have signed up
-  flash[:info] = "Thank you for signing up"
+  flash[:info] = "Boom! Thank you for signing up. An email has been sent to you"
 
-  # assuming this page exists
+  sg = SendGrid::API.new(api_key: ENV["API_KEY"])
+  subject = params[:name]
+  content = Content.new(type: 'text/html', 
+    value: 
+    '<p><strong>Epic Travelers</strong><br>
+    Be bold, be epic.</p>
+    
+    <p><strong>Start Posting!</strong></p>
+    <p>Head the the Epic Traveler Homepage and Sign In<br>
+    Se fellow travelers latest crazy videos and posts</p>
+    <p><a href="http://localhost:4567/" target="_blank"><img src="https://s9.postimg.cc/qct0apknz/adventure-beach-clouds-165505.jpg" alt="sunset kayaking"/></a><br>'
+  )
+
+  # create mail object with from, subject, to and content, and then send it
+  mail = Mail.new(from, subject, to, content)
+  response = sg.client.mail._('send').post(request_body: mail.to_json)
+
   redirect "/posts"
 end
 
@@ -104,20 +131,9 @@ get "/sign-out" do
 end
 
 
-get "/profile" do
-  @user = User.find(session[:user_id])
-  @posts = @user.posts
-  erb :profile
-end
-
-get "/profile/:id" do
-  @user = User.find(session[:user_id])
-  @posts = @user.posts
-end
-
 #create posts
 get "/posts" do
-  @posts = Post.all
+  @posts = Post.all.order("created_at DESC")
   @users = User.find(session[:user_id])
   erb :posts, :layout => :signed_in_homepage
 end
@@ -130,36 +146,24 @@ post "/posts" do
   images: params[:images],
   user_id: params[:user_id]
   )
-redirect "/" 
+redirect "/posts" 
 end
 
 #delete post
 delete "/posts/:id/delete" do
   @post = Post.find_by_id(params[:id])  
   @post.delete
-  redirect "/profile"
+  redirect "/posts"
 end
 
 #delete user
 get "/delete" do 
-  erb :delete
+  erb :delete, :layout => :delete_page
 end
 
 delete "/delete" do
   @user = User.find(session[:user_id])
   @user.destroy
-  redirect "/login"
+  redirect "/"
 end
 
-# edit post inspired by http://mherman.org/blog/2013/06/08/designing-with-class-sinatra-plus-postgresql-plus-heroku/#edit-posts
-get "/posts/:id/edit" do
-  @post = Post.find(params[:id])
-  @title = "Edit Form"
-  erb :"posts/edit"
-end
-
-post "/posts/:id" do
-  @posts = Post.find(params[:id])
-  @post.update(params[:post])
-  redirect "/posts/#{@post.id}"
-end

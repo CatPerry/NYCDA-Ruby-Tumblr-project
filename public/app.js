@@ -1,38 +1,38 @@
+let slideIndex = 0;
 
-let closeButton = document.querySelectorAll(".close-button")
-let flashPanel = document.querySelector(".flash")
+function carousel() {
 
-closeButton.addEventListener("click", event => {
-  event.preventDefault()
-  flashPanel.classList.add(".hide")
-});
+  let x = document.getElementsByClassName("mainimg");
+
+  for (let i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {
+    slideIndex = 1
+  }
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 3000);
+}
+carousel();
+
 
 window.addEventListener("scroll", function () {
-        let nav = document.getElementById("#nav")
-        let sticky = nav.offsetTop;
 
-        function stickyNav() {
-            if (window.pageYOffset >= sticky) {
-                nav.classList.add("sticky")
-            } else {
-                nav.classList.remove("sticky")
-            }
-        } stickyNav()
-    });
+  function stickyNav() {
+    let nav = document.querySelector("nav")
+    let sticky = nav.offsetTop;
+      if (window.scrollY <= 5) {
+        nav.classList.add("sticky")
+      } else {
+        nav.classList.remove("sticky")
+      }
+  } stickyNav();
+});
 
-let video = document.getElemnetById("videoloop");
 
-let button = document.getElementById("vidbutton");
 
-function playPause() {
-  if (video.paused) {
-    video.play();
-    button.innerHTML = "Pause";
-  } else {
-    video.pause();
-    button.innerHTML = "Play";
-  }
-}
+
 
 // let flash = document.getElementsByClassName(".flash")
 // function disappearFlash() {

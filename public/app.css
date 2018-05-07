@@ -6,7 +6,15 @@ body {
   text-align: center;
   font-size: 2.2em;
   margin-top: 10px;
-  text-shadow: white 2px 2px 2px;
+  text-shadow: white 1px 1px 1px;
+}
+.container {
+  background: url("images/Colors10872.mp4");
+}
+#postpg {
+  margin: 0px;
+  background: url("images/Colors10872.mp4");
+  width: 100%;
 }
 /* header {
   position: fixed;
@@ -21,15 +29,18 @@ body {
   font-family: 'Alfa Slab One', cursive;
   font-size: 1.3em;
   text-align: left;
+  padding: 5px;
 }
 .subhedfont .center {
   font-family: 'Alfa Slab One', cursive;
   font-size: 1.3em;
   text-align: center;
+  padding: 5px;
 }
 .flash {
-  background-color: pink;
-  animation: cssAnimation 0s ease-in 3s forwards;
+  background-color: #70D6D6;
+  border-radius: 4px;
+  animation: cssAnimation 0s ease-in 2.5s forwards;
 }
 @keyframes cssAnimation {
     to {
@@ -41,12 +52,13 @@ body {
 }
 #nav {
   height: 65px;
-  background: #FFAE00;
+  background: #FFCA2B;
   margin: 0px;
   padding: 0px;
   position: relative;
   overflow: hidden;
   z-index: 5;
+  box-shadow: black 1px 1px 1px;
 }
 #nav a {
   float: left; 
@@ -54,7 +66,7 @@ body {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 1.5em;
   display: block;
-  margin-top: 0px;
+  margin-top: 10px;
   text-align: center;
   padding: 10px;
   text-decoration: none; 
@@ -63,7 +75,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 6;
 }
 /* .sticky + .content {
     padding-top: 60px;
@@ -120,19 +132,25 @@ body {
 	display: block;
 }
 section {
-  margin: 0px;
-  padding: 0px;
+  background-color: #f1f1f1;
 }
-img.jumbotron {
+.mainimg {
   width: 100%;
-  margin: 0px;
+  align-items: center;
+  /* margin-left: 40px;
+  margin-right: 20px; */
+  margin-top: 0px;
+  margin-bottom: 0px;
   padding: 0px;
+  display: none;
 }
 div.col {
   padding: 0px;
 }
 .centerimg {
   width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .leftliimg {
   width: 60px;
@@ -142,6 +160,9 @@ div.col {
   margin-bottom: 0px;
 }
 .profileimg {
+  width: 100%;
+}
+.imgPost {
   width: 100%;
 }
 li {
@@ -202,27 +223,18 @@ div.sign-up-bar {
   justify: center;
 }
 .form-group {
-  background: rgba(0, 0, 0, 0.5);
-  text-shadow: black 3px 3px 3px;
+  /* background: rgba(0, 0, 0, 0.5); */
   padding: 30px;
-  color: #f1f1f1;
-  border-left: 6px solid red;
+  background: #f1f1f1;
+  border-left: 6px dotted #FFAE00;
 }
 #videoloop {
-  /* position: fixed;
-  right: 0;
-  bottom: 0; */
-  min-width: 100%;
-  z-index: 2;
-}
-/* .content {
-  position: fixed;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
   width: 100%;
-  padding: 30px;
-} */
+
+  z-index: 2;
+  background-color: #FFAE00;
+}
+
 div.content {
   position: fixed;
   bottom: 0;
@@ -247,3 +259,9 @@ footer {
    color: white;
    text-align: center;
 }
+
+
+
+
+
+
