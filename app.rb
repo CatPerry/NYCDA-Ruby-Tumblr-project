@@ -34,6 +34,8 @@ get "/" do
   @postsImages = Post.order("RANDOM()").limit(4)
   @postsbloggers = Post.order("RANDOM()").limit(2)
   @postsbottom = Post.order("RANDOM()").limit(2)
+  @usersheadshot1 = User.order("username DESC").limit(1)
+  @usersheadshot2 = User.order("RANDOM()").limit(1)
   @users = User.all
   if session[:user_id]
     erb :index
