@@ -31,7 +31,9 @@ end
 get "/" do
   # @posts = Post.all.order("created_at DESC")
   @posts = Post.order("RANDOM()").limit(3)
-
+  @postsImages = Post.order("RANDOM()").limit(4)
+  @postsbloggers = Post.order("RANDOM()").limit(2)
+  @postsbottom = Post.order("RANDOM()").limit(2)
   @users = User.all
   if session[:user_id]
     erb :index
@@ -140,7 +142,7 @@ end
 
 post "/posts" do
   #########new line below
-@user = User.find(session[:user_id])
+@user = User.find(session[:user_id]) 
 @post = Post.create(
   title: params[:title],
   author: params[:author],

@@ -25,7 +25,7 @@ body {
   color: white;
   text-align: center;
 } */
-.subhedfont {
+.subhedfont .h2 {
   font-family: 'Alfa Slab One', cursive;
   font-size: 1.3em;
   text-align: left;
@@ -144,6 +144,10 @@ section {
   padding: 0px;
   display: none;
 }
+.rightliimg {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 div.col {
   padding: 0px;
 }
@@ -151,13 +155,6 @@ div.col {
   width: 100%;
   margin-top: 15px;
   margin-bottom: 15px;
-}
-.leftliimg {
-  width: 60px;
-  float: left;
-  margin-top: 0px;
-  margin-right: 10px;
-  margin-bottom: 0px;
 }
 .profileimg {
   width: 100%;
@@ -175,11 +172,12 @@ li {
   float: right;
   font-family: 'Source Sans Pro', sans-serif;
 }
-.rightliimg {
+.leftliimg {
   width: 100%;
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 15px;
 }
+
 .media {
   margin: 40px;
 }
