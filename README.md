@@ -4,4 +4,4 @@ This is the the work-in-progress webapp that models TUMBLR, the blogging site. I
 
 <iframe width="630" height="394" src="https://www.useloom.com/embed/5f8062eac9f9429fb8e504a82aa7b059" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-The problems: How do you do that? and Give session/cookie permissions  
+How do you do you create user sessions though only allow users to create   
