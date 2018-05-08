@@ -1,5 +1,5 @@
 require "active_record"
-require "sqlite3"
+# require "sqlite3"
 
 class User < ActiveRecord::Base
   has_one :profile
