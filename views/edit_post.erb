@@ -1,0 +1,11 @@
+<form action="/posts/edit/<%=@posts.id%>" method="post">
+  <input type="hidden" name="_method" value="PUT">
+    <%# <div class="form-group"> %>
+      <label for="blog_post" class="subhedfont">Edit Post</label><br>
+      <input type="text" name="title" value="<%=@posts.title%>">
+      <input type="text" name="author" value="<%=@posts.author%>">
+      <input name="content" class="form-control" value="<%=@posts.content%>" rows="40" cols="50">
+      <input type="text" name="images" class="postsimgvid" value="<%=@posts.images%>">
+      <input type="submit" value="Edit Post" id="blogbutton">
+    <%# </div> %>
+</form>

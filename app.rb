@@ -110,7 +110,7 @@ post "/sign-up" do
     
     <p><strong>Start Posting!</strong></p>
     <p>Head the the Epic Traveler Homepage and Sign In<br>
-    Se fellow travelers latest crazy videos and posts</p>
+    See fellow travelers latest crazy videos and posts</p>
     <p><a href="http://localhost:4567/" target="_blank"><img src="https://s9.postimg.cc/qct0apknz/adventure-beach-clouds-165505.jpg" alt="sunset kayaking"/></a><br>'
   )
 
@@ -140,7 +140,6 @@ get "/posts" do
   @posts = Post.all.order("created_at DESC")
   @users = User.find(session[:user_id])
   @user_id = User.find(session[:user_id])
-  @edit_post = Post.find_by(id: params[:id]) 
   erb :posts, :layout => :signed_in_homepage
 end
 
@@ -148,8 +147,6 @@ post "/posts" do
   @user = User.find(session[:user_id]) 
   @posts = Post.find(params[:id])
   @users = User.find(session[:user_id])
-  @edit_post = Post.find_by(id: params[:id]) 
-
   @post = Post.create(
   title: params[:title],
   author: params[:author],
@@ -160,32 +157,36 @@ post "/posts" do
 redirect "/posts" 
 end
 
+get "/posts/:id" do
+  @posts = Post.find(params[:id])
+  erb :posts, :layout => :post_id
+end
+
+
 get "/posts/edit/:id" do
-  if session[:user_id] && Post.find(params[:id]).user.id == session[:user_id]
+  # if session[:user_id] && Post.find(params[:id]).user.id == session[:user_id]
     @posts = Post.find(params[:id])
     @users = User.find(session[:user_id])
     @user = User.find(session[:user_id])
-    @edit_post = Post.find_by(id: params[:id]) 
-    erb :posts, :layout => :signed_in_homepage
-  elsif session[:user_id] && Post.find(params[:id]).user.id != session[:user_id]
-    flash[:warning] = "Cannot edit this post"
-    redirect "/posts"
-  else 
-    flash[:warning] = "Please sign in" 
-    redirect "/"
-  end
+    erb :posts, :layout => :edit_post
+  # elsif session[:user_id] && Post.find(params[:id]).user.id != session[:user_id]
+  #   flash[:warning] = "Cannot edit this post"
+  #   redirect "/posts"
+  # # else 
+  #   flash[:warning] = "Please sign in" 
+  #   redirect "/"
+  # end
 end
 
-post "/posts/edit/:id" do
-  @users = User.find(session[:user_id])
-  @user = User.find(session[:user_id])
-  @edit_post = Post.find_by(id: params[:id]) 
-  @posts = edit_post.update(
+put "/posts/edit/:id" do
+  @posts = Post.find(params[:id])
+  @posts.update(
     title: params[:title],
+    author: params[:author],
     content: params[:content],
     images: params[:images],
-    user_id: user.id
   ) 
+  redirect "/posts"
 end
 
 #delete post
