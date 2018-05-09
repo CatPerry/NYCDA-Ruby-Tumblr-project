@@ -139,27 +139,59 @@ end
 get "/posts" do
   @posts = Post.all.order("created_at DESC")
   @users = User.find(session[:user_id])
+  @user_id = User.find(session[:user_id])
+  @edit_post = Post.find_by(id: params[:id]) 
   erb :posts, :layout => :signed_in_homepage
 end
 
 post "/posts" do
-  #########new line below
-@user = User.find(session[:user_id]) 
-@post = Post.create(
+  @user = User.find(session[:user_id]) 
+  @posts = Post.find(params[:id])
+  @users = User.find(session[:user_id])
+  @edit_post = Post.find_by(id: params[:id]) 
+
+  @post = Post.create(
   title: params[:title],
   author: params[:author],
   content: params[:content],
   images: params[:images],
-  #########new line below
   user_id: @user_id
   )
 redirect "/posts" 
 end
 
+get "/posts/edit/:id" do
+  if session[:user_id] && Post.find(params[:id]).user.id == session[:user_id]
+    @posts = Post.find(params[:id])
+    @users = User.find(session[:user_id])
+    @user = User.find(session[:user_id])
+    @edit_post = Post.find_by(id: params[:id]) 
+    erb :posts, :layout => :signed_in_homepage
+  elsif session[:user_id] && Post.find(params[:id]).user.id != session[:user_id]
+    flash[:warning] = "Cannot edit this post"
+    redirect "/posts"
+  else 
+    flash[:warning] = "Please sign in" 
+    redirect "/"
+  end
+end
+
+post "/posts/edit/:id" do
+  @users = User.find(session[:user_id])
+  @user = User.find(session[:user_id])
+  @edit_post = Post.find_by(id: params[:id]) 
+  @posts = edit_post.update(
+    title: params[:title],
+    content: params[:content],
+    images: params[:images],
+    user_id: user.id
+  ) 
+end
+
 #delete post
-delete "/posts/:id/delete" do
-  @post = Post.find_by_id(params[:id])  
-  @post.delete
+delete "/posts/delete/:id" do
+  @post = Post.destroy(params[:id])  
+  flash[:warning] = "Your post was deleted"
   redirect "/posts"
 end
 

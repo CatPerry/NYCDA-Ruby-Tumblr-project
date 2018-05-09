@@ -160,10 +160,17 @@ div.sign-up-bar {
   width: 600px;
   background-color: #FFAE00;
 }
-#buttons {
+#buttons  {
   background-color: #FFAE00;
   border-radius: 4px;
   color: white;
+  display: inline-flex;
+}
+.buttons {
+  background-color: #FFAE00;
+  border-radius: 4px;
+  color: white;
+  display: inline-flex;
 }
 .postsimgvid {
   width: 100%;
