@@ -159,7 +159,7 @@ end
 
 get "/posts/:id" do
   @posts = Post.find(params[:id])
-  erb :posts, :layout => :post_id
+  erb :posts, :layout => :one_post
 end
 
 

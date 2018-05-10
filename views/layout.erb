@@ -70,16 +70,16 @@
         <div class="row">
           <div class="col-3">
             <p class="subhedfont">GO: ADVENTURE<br>Pictures of the Day</p>
-            <% @postsImages.each do |post| %>
-            <img class="rightliimg" src="<%= post.images %>">
-            <% end %>
-          </div>
-          <div class="col-9">
-            <p class="subhedfont">Popular Posts</p>
-              <% @posts.each do |post|%>
-              <img class="centerimg imgPost" src="<%= post.images %>" ><br>
-              <h3> <%= post.title %></h3><%="by #{post.author}"%></br>
-              <% end %> 
+              <% @postsImages.each do |post|%>
+              <img class="rightliimg" src="<%=post.images %>">
+              <% end %>
+            </div>
+            <div class="col-9">
+              <p class="subhedfont">Popular Posts</p>
+                <% @posts.each do |post|%>
+                <img class="centerimg imgPost" src="<%= post.images %>" ><br>
+                <h3> <%= post.title %></h3><%="by #{post.author}"%></br>
+                <% end %> 
           </div>
         </div>
       </div>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="icon" type="image/png" href="images/horns-fav-512.png">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Alfa+Slab+One|Limelight|Open+Sans+Condensed:300|Poiret+One|Source+Sans+Pro" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Heebo|Libre+Franklin" rel="stylesheet">
+<title>Epic Travelers</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" href="app.css">
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5af10d5ae12a39001287de08&product=sticky-share-buttons"></script>
+    
+  </head>
+  <body>
+    <nav id="nav">
+      <a href="/">Home</a>
+      <% if session[:user_id] %>
+        <a href="/posts"/>Posts</a>
+        <a href="/sign-out">Sign Out</a>
+      <% else %>
+        <a href="/sign-in" />Sign In</a> <a href="/sign-up" />Sign Up</a>
+      <% end %>
+
+        <p class="logofont">
+          Epic Travelers
+        </p>
+    </nav>
+        
+    <h2> <%= @posts.title %> </h2><br>
+    <%="by #{@posts.author}"%>
+    <p class="content"> <%= @posts.content %> </p>
+    <p><img src="<%= @posts.images %>" class="postsimgvid"></p>
+    <p> <%= "#{@posts.created_at.strftime("%b %d, %Y")}" %> </p>
+
+    <% if @posts.user.id == session[:user_id] %>  
+      <ul>
+        <li class="buttons">
+          <form action="/posts/edit/<%= @posts.id %>" method="get">
+            <input class="buttons" type="submit" value="Edit Post">
+          </form>
+        </li>
+        
+        <li class="buttons">
+          <form action="/posts/delete/<%= @posts.id %>" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class="buttons" type="submit" value="Delete Post">
+          </form>
+        </li>
+      </ul>
+    <% end %>
+
+    <footer>
+      All rights reserved
+    </footer>
+
+    
+    <script src="app.js" type="text/javascript"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+    
