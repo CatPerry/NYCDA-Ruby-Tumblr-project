@@ -117,7 +117,10 @@ end
 
 #create posts
 get "/posts" do
+   p @user
+
   @posts = Post.all.order("created_at DESC")
+  @user = User.find(session[:user_id]) 
   @users = User.find(session[:user_id])
   @user_id = User.find(session[:user_id])
   erb :posts, :layout => :signed_in_homepage
@@ -125,7 +128,7 @@ end
 
 post "/posts" do
   @user = User.find(session[:user_id]) 
-  @posts = Post.find(params[:id])
+  @posts = Post.find_by(params[:id])
   @users = User.find(session[:user_id])
   @post = Post.create(
   title: params[:title],

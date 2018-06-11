@@ -47,6 +47,7 @@
                   <input type="text" name="author" placeholder="Enter author">
                   <textarea id="markItUp" name="content" class="form-control" placeholder="Type here" rows="20" cols="50"></textarea>
                   <input type="text" name="images" class="postsimgvid" placeholder="Paste video link/url">
+                  <input name="user_id" type="hidden" value="<%=@user_id.id%>">
                   <input type="submit" value="Post" id="blogbutton">
                 </div>
               </form>
@@ -85,22 +86,7 @@
                     <p> <%= "#{post.created_at.strftime("%b %d, %Y")}" %> </p>
                   </a>
                 
-                <% if post.user.id == session[:user_id] %>  
-                  <ul>
-                    <li class="buttons">
-                      <form action="/posts/edit/<%= post.id %>" method="get">
-                        <input class="buttons" type="submit" value="Edit Post">
-                      </form>
-                    </li>
-                    
-                    <li class="buttons">
-                      <form action="/posts/delete/<%= post.id %>" method="post">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <input class="buttons" type="submit" value="Delete Post">
-                      </form>
-                    </li>
-                  </ul>
-                <% end %> 
+                  
                <% end %>
             </ul>
           </div>
