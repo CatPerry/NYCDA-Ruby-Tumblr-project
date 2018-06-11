@@ -1,0 +1,43 @@
+/* line 4, /Users/catrinaperry/Desktop/PROGRAMMING/NYCDA/projects/pamelas-panel-admin/PamelasAdminPanel/app/assets/stylesheets/pages.scss */
+.col-sm {
+  margin: 20px;
+  padding: 40px;
+  background-color: #9EEAC7;
+  text-align: center;
+  font-size: 1.5em;
+  color: black;
+  border-radius: 3px;
+  -webkit-text-decoration-style: none;
+          text-decoration-style: none;
+}
+
+/* line 14, /Users/catrinaperry/Desktop/PROGRAMMING/NYCDA/projects/pamelas-panel-admin/PamelasAdminPanel/app/assets/stylesheets/pages.scss */
+section {
+  border-radius: 5px;
+  background-color: #CDF8A7;
+}
+
+/* line 18, /Users/catrinaperry/Desktop/PROGRAMMING/NYCDA/projects/pamelas-panel-admin/PamelasAdminPanel/app/assets/stylesheets/pages.scss */
+.nav-link a {
+  display: inline-block;
+}
+
+/* line 21, /Users/catrinaperry/Desktop/PROGRAMMING/NYCDA/projects/pamelas-panel-admin/PamelasAdminPanel/app/assets/stylesheets/pages.scss */
+main {
+  margin: 40px;
+  padding: 40px;
+  background-color: #CDF8A7;
+  border-radius: 3px;
+  width: 45%;
+  display: block;
+  float: left;
+}
+
+/* line 30, /Users/catrinaperry/Desktop/PROGRAMMING/NYCDA/projects/pamelas-panel-admin/PamelasAdminPanel/app/assets/stylesheets/pages.scss */
+aside {
+  display: block;
+  float: right;
+  width: 50%;
+  margin: 40px;
+  padding: 40px;
+}

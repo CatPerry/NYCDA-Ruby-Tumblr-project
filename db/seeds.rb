@@ -1,11 +1,11 @@
 require "./models"
 
 # in this file we can make use of our ActiveRecord models to create starter data
-User.create(username: "Catacylsm", password: "12345", birthday: 1-1-1980, first_name: "Cat", last_name: "Perry", email: "000.perry@gmail.com", userimage: "https://github.com/account")
-User.create(username: "Laurenisnerdy", password: "12345", birthday: 1-1-1980, first_name: "Lauren", last_name: "Tracy", email: "ltabc@gmail.com", userimage: "https://avatars2.githubusercontent.com/u/37302245?s=400&v=4")
-User.create(username: "LadyMada", password: "12345", birthday: 1-1-1980, first_name: "Mada", last_name: "Romero", email: "ladymada@gmail.com", userimage: "https://avatars0.githubusercontent.com/u/37271419?s=400&v=4")
-User.create(username: "AlexRocks", password: "12345", birthday: 1-1-1980, first_name: "Alex", last_name: "Honnold", email: "alexrocks@gmail.com", userimage: "https://s7.postimg.cc/vi2ebkjff/climbing-yosemite-ropeless-380c4a23.jpg")
-User.create(username: "Spock", password: "12345", birthday: 1-1-1980, first_name: "Mr", last_name: "Spock", email: "livelong@prosper.com", userimage: "https://s7.postimg.cc/usjlz7b63/spock.jpg")
+User.create(username: "Catacylsm", password: "12345", birthday: "01/01/1980", first_name: "Cat", last_name: "Perry", email: "000.perry@gmail.com", userimage: "https://github.com/account")
+User.create(username: "Laurenisnerdy", password: "12345", birthday: "01/01/1980", first_name: "Lauren", last_name: "Tracy", email: "ltabc@gmail.com", userimage: "https://avatars2.githubusercontent.com/u/37302245?s=400&v=4")
+User.create(username: "LadyMada", password: "12345", birthday: "01/01/1980", first_name: "Mada", last_name: "Romero", email: "ladymada@gmail.com", userimage: "https://avatars0.githubusercontent.com/u/37271419?s=400&v=4")
+User.create(username: "AlexRocks", password: "12345", birthday: "01/01/1980", first_name: "Alex", last_name: "Honnold", email: "alexrocks@gmail.com", userimage: "https://s7.postimg.cc/vi2ebkjff/climbing-yosemite-ropeless-380c4a23.jpg")
+User.create(username: "Spock", password: "12345", birthday: "01/01/1980", first_name: "Mr", last_name: "Spock", email: "livelong@prosper.com", userimage: "https://s7.postimg.cc/usjlz7b63/spock.jpg")
 
 
 Post.create(title: "The 10 Best Places in the World to Mountain Bike", author: "Cat Perry", content: "You haven't lived until you're flying down these singltracks. Travel colorful darn design traveler darn organized darn fun theme. Organized organized website colorful colorful, traveler webdesign darn pretty fun colorful. Organized whimsical theme simple modern webdesign, clean webdesign design cute adventure colorful traveler. Darn WordPress whimsical traveler clean website, theme modern pretty clean traveling adventure. Simple theme Travel colorful, traveling clean design adventure colorful traveler traveler expedition. Colorful adventure modern, excursion design modern modern website whimsical wanderlust", user_id: 1, images: "https://s7.postimg.cc/6q2s444qz/action-adventure-bicycle-71104.jpg")

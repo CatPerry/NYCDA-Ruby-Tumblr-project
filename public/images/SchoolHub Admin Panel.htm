@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://localhost:3000/admins -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>SchoolHub Admin Panel</title>
+    <link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/_bootstrap-custom.self-6ed2a3a469080aec8de1aecb39ca962a4c7200b564e8bc53dc7fc84e3ebe849a.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/admins.self-630b4424401d7b042de0e9b33b9d12e6b0533acf338c9ff5ce01f7a713e60f37.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/application.self-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/cohorts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/mains.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/pages.self-04aab65694ebcb50f426a8228cf3ccbdb70fdc3b18b9361d6ae743d17020cb4f.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/student_cohorts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/styles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/teacher_cohorts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/teachers.self-a5aa2573393ae165178025edf0e1cc2b3505d44378ec7b110f29bca1d9872816.css">
+<link rel="stylesheet" media="screen" href="./SchoolHub Admin Panel_files/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  <script src="./SchoolHub Admin Panel_files/application-7da7ba203b8f4d31f805.js"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="AiM64tgQ3LAXbpmkiAxIEvjSouc1t1WLOtOOnGny/T6fx84G0hmK5PSEwTiZ5hArXVbckB2dLWysNAv/denmgQ==">
+  <link rel="stylesheet" href="./SchoolHub Admin Panel_files/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style></head>
+<body>
+
+  <div id="flash">
+  </div>
+
+
+ 
+  
+  
+    <title>SchoolHub Admin Panel</title>
+    <link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/_bootstrap-custom.self-6ed2a3a469080aec8de1aecb39ca962a4c7200b564e8bc53dc7fc84e3ebe849a.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/admins.self-630b4424401d7b042de0e9b33b9d12e6b0533acf338c9ff5ce01f7a713e60f37.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/application.self-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/cohorts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/courses.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/mains.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/pages.self-04aab65694ebcb50f426a8228cf3ccbdb70fdc3b18b9361d6ae743d17020cb4f.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/scaffolds.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/student_cohorts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/students.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/styles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/teacher_cohorts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/teachers.self-a5aa2573393ae165178025edf0e1cc2b3505d44378ec7b110f29bca1d9872816.css">
+<link rel="stylesheet" media="all" href="./SchoolHub Admin Panel_files/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+    <script src="./SchoolHub Admin Panel_files/rails-ujs.self-551fbd47b981dacbb84a270f9123074caf39eb72aaf6f478ab597c6f81435e4b.js"></script>
+<script src="./SchoolHub Admin Panel_files/activestorage.self-6e8d967adecc8b2a7259df0f51ef5b6f171c33267c7d149a474beccd90c68697.js"></script>
+<script src="./SchoolHub Admin Panel_files/turbolinks.self-2db6ec539b9190f75e1d477b305df53d12904d5cafdd47c7ffd91ba25cbec128.js"></script>
+<script src="./SchoolHub Admin Panel_files/index.self-a216c390bf956cbb906c66d29fdb2e2ad6999464a5ca83e476533a6f25ad0ef3.js"></script>
+<script src="./SchoolHub Admin Panel_files/react_ujs.self-eb4e9994228856e343ab49d1aed6c23046bf4308ea6d46395e5c39170ab3e56f.js"></script>
+<script src="./SchoolHub Admin Panel_files/components.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+<script src="./SchoolHub Admin Panel_files/admins.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js"></script>
+<script src="./SchoolHub Admin Panel_files/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js"></script>
+<script src="./SchoolHub Admin Panel_files/cohorts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/courses.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/index.self-4549b24fbb2deaf10a4a0b39add3517999d4dfe318fedb65f157caa5c1ccf19c.js"></script>
+<script src="./SchoolHub Admin Panel_files/mains.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/react-server.self-fb07b5bcdf5415224debd816ed6be5d68da778429f722a982995ed51b779164a.js"></script>
+<script src="./SchoolHub Admin Panel_files/server_rendering.self-cc0c9a7ae066dab953a3915c75fde3b432278f8469a119c0954495472965de52.js"></script>
+<script src="./SchoolHub Admin Panel_files/student_cohorts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/students.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/teacher_cohorts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/teachers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js"></script>
+<script src="./SchoolHub Admin Panel_files/jquery3.self-5af507e253c37e9c9dcf65064fc3f93795e6e28012780579975a4d709f4074ad.js"></script>
+<script src="./SchoolHub Admin Panel_files/popper.self-b5d0395dd499f58f910fee32e5221f71c3b8e6f3229879a7b76d481c5446de10.js"></script>
+<script src="./SchoolHub Admin Panel_files/util.self-45f0828cb0ecf093daff5cd832e8e7242240ba50e06e7dbb5e73f982a38510f4.js"></script>
+<script src="./SchoolHub Admin Panel_files/collapse.self-1b9366a3e2b2f40707b57f3109ebac282727a1c0d9c3c0492ce86c26d905b9da.js"></script>
+<script src="./SchoolHub Admin Panel_files/carousel.self-cf42778b03424d409ddb78640bb65816fa1675e69c6133cac2abb517ca173328.js"></script>
+<script src="./SchoolHub Admin Panel_files/tooltip.self-e337d16e038213f0dae48fdae1867c9c55a8b8dde6d0a9a8b6c868a83b3e6d09.js"></script>
+<script src="./SchoolHub Admin Panel_files/tab.self-7d8bc44f45ea4f860d04caf19caea80f6c99622056a0dbc6660bc910b33c309a.js"></script>
+<script src="./SchoolHub Admin Panel_files/scrollspy.self-fa0c939fb5ed4b4134926f8c78489ec33da47239b96f7ddaea3257623ec7293f.js"></script>
+<script src="./SchoolHub Admin Panel_files/modal.self-e7801fc794f9782b99abc817c89f72d6b0b8901241e7669636e4c81d4b884ab0.js"></script>
+<script src="./SchoolHub Admin Panel_files/popover.self-cd39a55327cb02f89e68eafcb9ec332e96ad04388bba5a874669be13f01f7649.js"></script>
+<script src="./SchoolHub Admin Panel_files/alert.self-33c50a933f5256b5562bdb6898b38fb1e6a092c6967182b7c2927d4f156c9e64.js"></script>
+<script src="./SchoolHub Admin Panel_files/dropdown.self-513b9c1b595ded47afc66781caee1f87f0976be2a5480326c2bd950a9c7c75b3.js"></script>
+<script src="./SchoolHub Admin Panel_files/button.self-b477bd2fb3ac56ebbdde34f29ee5ad0470a028984f6c8358ba28ad686d6ab044.js"></script>
+<script src="./SchoolHub Admin Panel_files/bootstrap-sprockets.self-636159b35205da4142a43bc02d2849d77d3ac07a0946211585cde15a9c6ff21f.js"></script>
+<script src="./SchoolHub Admin Panel_files/application.self-cee66266b5c13493a46c430079b406cbae3d6f03a909cffbc4add78a724f30a2.js"></script>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="duSVkW4di/b3UMS7KoXFHPVr3588w+AOHFGADTjImizrAGF1ZBTdohS6nCc7b50lUO+h6BTpmOmKtgVuJNOBkw==">
+    <link rel="stylesheet" href="./SchoolHub Admin Panel_files/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  
+  
+
+    <p id="notice"></p>
+
+    <h1>ADMINS PORTAL</h1>
+
+
+    <h1>Manage</h1>
+    <a href="http://localhost:3000/teachers">Teachers</a>
+    <a href="http://localhost:3000/students">Students</a>
+    <a href="http://localhost:3000/courses">Courses</a>
+    <a href="http://localhost:3000/cohorts">Cohorts</a>
+    <a href="http://localhost:3000/admins">Home</a>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td>Cat</td>
+            <td></td>
+            <td><a href="http://localhost:3000/admins/1">Show</a> |</td>
+            <td><a href="http://localhost:3000/admins/1/edit">Edit</a> |</td>
+            <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/admins/1">Delete</a></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><a href="http://localhost:3000/admins/2">Show</a> |</td>
+            <td><a href="http://localhost:3000/admins/2/edit">Edit</a> |</td>
+            <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/admins/2">Delete</a></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><a href="http://localhost:3000/admins/3">Show</a> |</td>
+            <td><a href="http://localhost:3000/admins/3/edit">Edit</a> |</td>
+            <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="http://localhost:3000/admins/3">Delete</a></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <a href="http://localhost:3000/admins/new">New Admin</a>
+
+
+    
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="http://localhost:3000/admins#">SCHOOLHUB</a>
+      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="http://localhost:3000/admins#">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    </a><a href="http://localhost:3000/teachers">Teachers</a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    </a><a href="http://localhost:3000/students">Students</a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </a><a href="http://localhost:3000/courses">Courses</a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    </a><a href="http://localhost:3000/cohorts">Cohorts</a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    </a><a href="http://localhost:3000/admins">Home</a>
+                
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Saved reports</span>
+              <a class="d-flex align-items-center text-muted" href="http://localhost:3000/admins#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Current month
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Last quarter
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Social engagement
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:3000/admins#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Year-end sale
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-8 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-outline-secondary">Share</button>
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                This week
+              </button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td>ante</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                </tr>
+                <tr>
+                  <td>1,011</td>
+                  <td>eget</td>
+                  <td>nulla</td>
+                  <td>Class</td>
+                  <td>aptent</td>
+                </tr>
+                <tr>
+                  <td>1,012</td>
+                  <td>taciti</td>
+                  <td>sociosqu</td>
+                  <td>ad</td>
+                  <td>litora</td>
+                </tr>
+                <tr>
+                  <td>1,013</td>
+                  <td>torquent</td>
+                  <td>per</td>
+                  <td>conubia</td>
+                  <td>nostra</td>
+                </tr>
+                <tr>
+                  <td>1,014</td>
+                  <td>per</td>
+                  <td>inceptos</td>
+                  <td>himenaeos</td>
+                  <td>Curabitur</td>
+                </tr>
+                <tr>
+                  <td>1,015</td>
+                  <td>sodales</td>
+                  <td>ligula</td>
+                  <td>in</td>
+                  <td>libero</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./SchoolHub Admin Panel_files/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+
+    <!-- Icons -->
+    <script src="./SchoolHub Admin Panel_files/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- Graphs -->
+    <script src="./SchoolHub Admin Panel_files/Chart.min.js"></script>
+  
+
+  
+
+
+
+
+
+
+<script src="./SchoolHub Admin Panel_files/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="./SchoolHub Admin Panel_files/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="./SchoolHub Admin Panel_files/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" type="text/css" href="chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/css/content.css"></body><loom-container id="lo-engage-ext-container"><loom-shadow data-reactroot="" classname="resolved"></loom-shadow></loom-container></html>

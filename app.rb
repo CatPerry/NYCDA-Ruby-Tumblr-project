@@ -8,9 +8,6 @@ require 'sendgrid-ruby'
 
 include SendGrid
 
-from = Email.new(email: '000.perry@gmail.com')
-to = Email.new(email: '000.perry@gmail.com')
-
 
 # set :database, "sqlite3:app.db"
 # enable :sessions
@@ -100,23 +97,6 @@ post "/sign-up" do
 
   # lets the user know they have signed up
   flash[:info] = "Boom! Thank you for signing up. An email has been sent to you"
-
-  sg = SendGrid::API.new(api_key: ENV["API_KEY"])
-  subject = params[:name]
-  content = Content.new(type: 'text/html', 
-    value: 
-    '<p><strong>Epic Travelers</strong><br>
-    Be bold, be epic.</p>
-    
-    <p><strong>Start Posting!</strong></p>
-    <p>Head the the Epic Traveler Homepage and Sign In<br>
-    See fellow travelers latest crazy videos and posts</p>
-    <p><a href="http://localhost:4567/" target="_blank"><img src="https://s9.postimg.cc/qct0apknz/adventure-beach-clouds-165505.jpg" alt="sunset kayaking"/></a><br>'
-  )
-
-  # create mail object with from, subject, to and content, and then send it
-  mail = Mail.new(from, subject, to, content)
-  response = sg.client.mail._('send').post(request_body: mail.to_json)
 
   redirect "/posts"
 end
